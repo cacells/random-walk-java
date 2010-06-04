@@ -1,5 +1,9 @@
-/*
- * This contains the classes for the Box object for the CA version of the model
+/**
+ * Defines properties of the part of the grid - box or home - for each cell.
+ * 
+ * @param rand type: Random instance
+ * @param occupant a CACell - the occupant of this box
+ * @param x an integer - the x position of this box
  */
 
 import java.util.*;

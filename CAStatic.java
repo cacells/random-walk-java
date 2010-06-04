@@ -16,12 +16,11 @@ public class CAStatic extends JFrame implements Runnable, ActionListener {
     int[][] savedvals;
     int runCount = 0;
     int epsCount = 0;
+    int newframe = 0;
     Random rand = new Random();    
 	volatile Thread runner;
 	Image backImg1;
 	Graphics backGr1;
-	Image backImg2;
-	Graphics backGr2;
 	CAImagePanel CApicture;
 	JButton startBtn,writeBtn,paramsBtn,wrapBtn;
 	JTextArea msgBtn;
@@ -31,7 +30,6 @@ public class CAStatic extends JFrame implements Runnable, ActionListener {
 	int gSize;
 	int maxCellType;
 	int maxit = 100;
-	//Image wormimg = new ImageIcon("worm_small.jpg").getImage();
 	boolean started = false;
     Colour palette = new Colour();
 	int[] colorindices = {0,1,2,54,4,5};
@@ -201,20 +199,24 @@ public class CAStatic extends JFrame implements Runnable, ActionListener {
 	}
 	
 	public void run() {
+
 		saveCA();
 
 		while ((iterations < maxit) && (runner == Thread.currentThread())) {
+			
 			experiment.iterate();
 			saveCA();
 			drawCA();
 			iterations++;
+			newframe = 0;
+			while(newframe<500000) newframe++;
 			//if((iterations%5)==0)postscriptPrint("CA"+iterations+".eps");
 			// This will produce a postscript output of the tissue
 		}
 		//this will print out aborted resuslts
 		//to stop that check if maxit was achieved
-
         stop();
+		
 	}
 
 
@@ -224,7 +226,7 @@ public class CAStatic extends JFrame implements Runnable, ActionListener {
 		int a;
 		int state;
 		int xsize = gSize*4;
-		int ysize = (int)Math.ceil((double)(maxit*xsize)/(double)gSize) + 30;
+		int ysize = (int)Math.ceil((double)(iterations*xsize)/(double)gSize) + 30;
 		xsize = xsize + 30;
 		System.out.println("ysize = "+ysize);
 		boolean flag;

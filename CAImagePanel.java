@@ -8,7 +8,7 @@ class CAImagePanel extends JPanel {
 
 	    Image backImg;
 	    Graphics backGr;
-		int height, width, colums, rows;
+		int colums, rows;
 		int xScale, yScale;
 
 		public void setScale(int noColums,int noRows, int scale)

@@ -21,9 +21,9 @@ public class CAGridStatic {
 		int ttype;
 		// Grid looped through and new CABox and CACell created for each element in the array
 		for (int x = 0; x < size; x++) {
-			//ttype=rand.nextInt(2);// Cell type set randomly to either 0 or 1
-            ttype = 0;
-            if ((x >26)&&(x<36))ttype = 1;
+			ttype=rand.nextInt(2);// Cell type set randomly to either 0 or 1
+            //ttype = 0;
+            //if ((x >26)&&(x<36))ttype = 1;
 			grid[x][0] = new CABoxStatic(x,0);// New instance of CABox created and added to 2D grid
 		    if (ttype == 1){
 				lineage++;
