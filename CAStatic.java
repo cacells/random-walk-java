@@ -29,7 +29,7 @@ public class CAStatic extends JFrame implements Runnable, ActionListener {
 	int iterations;
 	int gSize;
 	int maxCellType;
-	int maxit = 100;
+	int maxit = 10;
 	boolean started = false;
     Colour palette = new Colour();
 	int[] colorindices = {0,1,2,54,4,5};
@@ -42,8 +42,8 @@ public class CAStatic extends JFrame implements Runnable, ActionListener {
 
 	    gSize=size;
 		//experiment = new CAGridStatic(size, maxC);
-
-		setSize(380 + 20, (int)Math.ceil((double)(380*maxit)/(double)size)+60);
+	    int tint = (int)Math.ceil((double)(400*maxit)/(double)gSize)+(480-384);
+		setSize(400,tint);
 		//add 20 to x and 60 to y bcos not printing onto the full frame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container mainWindow = getContentPane();

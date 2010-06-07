@@ -39,7 +39,7 @@ class CAImagePanel extends JPanel {
 		public void updateGraphic() {
 		        Graphics g = this.getGraphics();
 		        if ((backImg != null) && (g != null)) {		        	
-		            g.drawImage(backImg, 10, 10, this.getSize().width-10, this.getSize().height-10, 0, 0, (int) (xScale * (colums)), (int) (yScale * (rows)), this);
+		            g.drawImage(backImg, 0, 0, this.getSize().width, this.getSize().height, 0, 0, (int) (xScale * (colums)), (int) (yScale * (rows)), this);
 		        }
 		    }
 
